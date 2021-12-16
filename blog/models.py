@@ -5,27 +5,26 @@ from django.contrib.auth.models import User
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
-        return super(PublishedManager,self).get_queryset().filter(status='published')
+        return super(PublishedManager, self).get_queryset().filter(status="published")
 
 
 class Post(models.Model):
-    objects = models.Manager() # The default manager.
-    published = PublishedManager() # Our custom manager.
-    STATUS_CHOICES = (('draft', 'Draft'),('published', 'Published'))
+    objects = models.Manager()  # The default manager.
+    published = PublishedManager()  # Our custom manager.
+    STATUS_CHOICES = (("draft", "Draft"), ("published", "Published"))
     title = models.CharField(max_length=250)
-    author = models.ForeignKey(User,
-    on_delete=models.CASCADE,
-    related_name='blog_posts')
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts"
+    )
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
+
+
 class Meta:
-    ordering = ('-publish',)
+    ordering = ("-publish",)
+
     def __str__(self):
         return self.title
-
-
-
-        
