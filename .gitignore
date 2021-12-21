@@ -133,4 +133,4 @@ dmypy.json
 
 
 #to solve conflict
-.DS_Store
+.DS_Store/
