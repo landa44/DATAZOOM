@@ -20,14 +20,11 @@ p{
     text-align: center;
 }
 h1{
-    padding:20%;
-    padding: 5%; 
+    margin-left:10%;
+    margin-right:10%;
+   padding-top:20%;
     text-align: center;
 }
 body{
     font-family: 'Ubuntu', sans-serif;
-}
-
-.main-section{
-    margin-top:4000cm;
 }
