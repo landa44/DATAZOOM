@@ -2,6 +2,7 @@
 {% url 'public:index' as index_url %}
 {% url 'public:about' as about_url %}
 {% url 'public:contact' as contact_url %}
+{% url 'public:recents' as recents_url %}
 
 <nav class="navbar  navbar-expand-lg navbar-light floating-top">
   <div class="container-fluid">
@@ -14,20 +15,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav me-auto mb-2 mb-lg-0">
-        <a class="nav-link" href="#">Recents Posts</a>
+        <a class="nav-link" href="{{recents_url}}">Recents Posts</a>
         <a class="nav-link" href="#">Mailing lists</a>
         <a class="nav-link" href="{{contact_url}}">Contact</a>
         <a class="nav-link" href="{{about_url}}">About us</a>
       </div>
 
       {% url 'public:index' as index_url %}
+      {% url 'public:recents' as recents_url %}
 
-      {% if request.path == index_url %}
+      {% if request.path == index_url or request.path == recents_url %}
         <form class="d-flex ">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       {% endif %}
+
+
 
     </div>
   </div>
