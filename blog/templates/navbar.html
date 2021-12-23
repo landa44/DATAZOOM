@@ -22,7 +22,7 @@
       </div>
 
       {% url 'public:index' as index_url %}
-      {% url 'public:recents' as index_url %}
+      {% url 'public:recents' as recents_url %}
 
       {% if request.path == index_url or request.path == recents_url %}
         <form class="d-flex ">
