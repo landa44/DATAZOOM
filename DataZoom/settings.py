@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "blog",
+    # "DataZoom.apps.blog",
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = "DataZoom.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "blog/templates"),],
+        "DIRS": [os.path.join(BASE_DIR, "DataZoom/templates"),],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
