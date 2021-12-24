@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render 
 from django.http import HttpResponse
-from blog.models import Post
+from datazoom.apps.blog.models import Post
 
 
 def index(request):

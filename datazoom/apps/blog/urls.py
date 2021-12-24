@@ -10,7 +10,3 @@ urlpatterns = [
     #   path('blog/', views.get_post),
 ]
 urlpatterns += staticfiles_urlpatterns()
-
-
-
-

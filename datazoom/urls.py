@@ -20,5 +20,5 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     # path("", include("blog.urls")),
-    path("", include('DataZoom.apps.public.urls')),
+    path("", include('datazoom.apps.public.urls')),
 ]
