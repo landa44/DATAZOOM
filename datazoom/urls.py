@@ -21,4 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # path("", include("blog.urls")),
     path("", include('datazoom.apps.public.urls')),
+    path("accounts/", include('datazoom.apps.accounts.urls')),
 ]
