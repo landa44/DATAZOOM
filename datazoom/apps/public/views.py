@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datazoom.apps.blog.models import Post
 
-
 def index(request):
     posts = Post.published.all()
-    return render(request, "home.html", {"posts": posts})
+
+    return render(request, "home.html", {"posts": posts, "index_urls": True})
 
 
 def about(request):
