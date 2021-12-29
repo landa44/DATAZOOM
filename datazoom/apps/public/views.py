@@ -5,7 +5,7 @@ from datazoom.apps.blog.models import Post
 def index(request):
     posts = Post.published.all()
 
-    return render(request, "home.html", {"posts": posts, "index_urls": True})
+    return render(request, "home.html", {"posts": posts, "is_url_with_search": True})
 
 
 def about(request):
