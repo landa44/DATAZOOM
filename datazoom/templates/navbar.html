@@ -23,7 +23,7 @@
       </div>
 
 
-      {% url 'public:recents' as recents_url %}
+      {% url 'accounts:login' as login_url %}
 
       {% if is_url_with_search %}
         <form class="d-flex ">
@@ -43,24 +43,20 @@
                 {{user.username}}
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" type="button">Profile</a></li>
+                <li><a class="dropdown-item" type="button" href="{% url 'accounts:profile' %}">Profile</a></li>
                 <li><a class="dropdown-item" type="button">Settings</a></li>
                 <li><a class="dropdown-item" type="button" href="{% url 'accounts:logout' %}">Logout</a></li>
               </ul>
             </li>
           </ul>
           <!-- newend -->
-
-          <!-- <span class='navbar-text'>
-            Hi {{ user.username }}!
-          </span>
-          <a class='nav-link' href="{% url 'accounts:logout' %}">Logout</a> -->
-        {% else %}
-        <ul class="navbar-nav mr-auto">
-          <li class='nav-item'>
-            <a class='nav-link' href="{% url 'accounts:login' %}">Login</a>
-          </li>
-        </ul>
+        {% elif request.path != login_url %}
+          <ul class="navbar-nav mr-auto">
+            <li class='nav-item'>
+              <a class='nav-link' href="{% url 'accounts:login' %}">Login</a>
+            </li>
+          </ul>
+       
         {% endif %}
       <!-- </div> -->
       
