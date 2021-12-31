@@ -28,3 +28,15 @@ h1{
 body{
     font-family: 'Ubuntu', sans-serif;
 }
+
+.card{
+    margin-left:30%;
+    margin-right:30%;
+}
+
+h3{
+    margin-left:10%;
+    margin-right:10%;
+   padding-top:10%;
+    text-align: center;
+}
