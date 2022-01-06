@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "datazoom.apps.blog",
     "datazoom.apps.accounts",
-    'django.crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -139,5 +138,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_URL = "accounts:login"
 LOGIN_REDIRECT_URL = "public:index"
 LOGOUT_REDIRECT_URL = "public:index"
-
-CRISPY_TEMPLATE_PACK = 'bootstrap5'

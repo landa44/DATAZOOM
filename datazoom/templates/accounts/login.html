@@ -1,16 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'accounts/form.html' %}
 
-<title >{% block title %}Login{% endblock %}</title>
+{% block title %}Login{% endblock %}
 
-{% block content %}
-
-    <div class="card-body p-5 text-center"> 
-        <h3 class="mb-5">Sign in</h3> 
-        <form  method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button class="btn btn-outline-success" type="submit">Submit</button>
-        </form>
-    </div>
-
+{% block message %}Sign in{% endblock %}
+{% block form %}{{form.as_p}}{% endblock %}
+{% block button %}Submit{% endblock %}
+{% block link %}
+    <a href="{% url 'accounts:registration' %}">I don't have an account yet.</a>
 {% endblock %}

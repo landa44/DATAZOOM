@@ -16,9 +16,13 @@ body{
     margin-right:10%;
    padding-top:5%;
 }
-p{
+
+.textcenter{
     text-align: center;
 }
+/* p{
+    text-align: center;
+} */
 h1{
     margin-left:10%;
     margin-right:10%;
