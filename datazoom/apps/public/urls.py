@@ -13,7 +13,3 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
 ]
 urlpatterns += staticfiles_urlpatterns()
-
-
-
-

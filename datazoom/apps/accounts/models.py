@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # from datazoom.apps.blog import models as blog_models
 
 # Create your models here.
+
 
 class UserProfile(models.Model):
     # owner
