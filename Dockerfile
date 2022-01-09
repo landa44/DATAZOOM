@@ -26,8 +26,8 @@ RUN pip install -r ./requirements/prod.txt
 
 
 COPY manage.py ./manage.py
-COPY DataZoom ./DataZoom
-COPY blog ./blog
+COPY datazoom ./datazoom
+COPY static ./static
 
 EXPOSE 8000
 
