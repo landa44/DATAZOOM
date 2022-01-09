@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<title >{% block title %}Registration{% endblock %}</title>
+
+{% block content %}
+
+    <div class="card-body p-5 container-fluid"> 
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12"></div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <h3 class="mb-5">Create new profile</h3> 
+            <div class="form-group"> 
+              <form  method="POST">
+                {{user_form.as_p}}
+                {{profile_form.as_p}}
+                {% csrf_token %}
+                <div class="text-center">
+
+                  <button class="btn btn-outline-success" type="submit">Register</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+{% endblock %}

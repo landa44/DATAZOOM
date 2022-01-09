@@ -16,9 +16,13 @@ body{
     margin-right:10%;
    padding-top:5%;
 }
-p{
+
+.textcenter{
     text-align: center;
 }
+/* p{
+    text-align: center;
+} */
 h1{
     margin-left:10%;
     margin-right:10%;
@@ -27,4 +31,16 @@ h1{
 }
 body{
     font-family: 'Ubuntu', sans-serif;
+}
+
+.card{
+    margin-left:30%;
+    margin-right:30%;
+}
+
+h3{
+    margin-left:10%;
+    margin-right:10%;
+   padding-top:10%;
+    text-align: center;
 }

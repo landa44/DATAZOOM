@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="card-body p-5 text-center">
+  <h1>{{user.get_full_name}}</h1>
+  <h3>@{{user.username}}</h3>
+
+  {% with profile=user.profile %}
+    {%if profile%}
+      {{profile.bio|default:""}}
+     
+      {% with website=profile.website|default:""%}
+        <a href="{{website}}">{{website}}</a>
+      {% endwith %}
+      
+    {%endif%}
+  {% endwith %}
+</div>
+
+{% endblock %}

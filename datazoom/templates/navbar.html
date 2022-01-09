@@ -13,6 +13,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav me-auto mb-2 mb-lg-0">
         <a class="nav-link" href="{{recents_url}}">Recents Posts</a>
@@ -21,18 +22,44 @@
         <a class="nav-link" href="{{about_url}}">About us</a>
       </div>
 
-      {% url 'public:index' as index_url %}
-      {% url 'public:recents' as recents_url %}
 
-      {% if request.path == index_url or request.path == recents_url %}
+      {% url 'accounts:login' as login_url %}
+
+      {% if is_url_with_search %}
         <form class="d-flex ">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       {% endif %}
 
+      <!-- <div class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+        {% if user.is_authenticated %}
 
+          <!-- new -->
+          <ul class="navbar-nav">
 
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" href="#"   data-bs-toggle="dropdown" aria-expanded="false">
+                {{user.username}}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li><a class="dropdown-item" type="button" href="{% url 'accounts:profile' %}">Profile</a></li>
+                <li><a class="dropdown-item" type="button">Settings</a></li>
+                <li><a class="dropdown-item" type="button" href="{% url 'accounts:logout' %}">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- newend -->
+        {% elif request.path != login_url %}
+          <ul class="navbar-nav mr-auto">
+            <li class='nav-item'>
+              <a class='nav-link' href="{% url 'accounts:login' %}">Login</a>
+            </li>
+          </ul>
+       
+        {% endif %}
+      <!-- </div> -->
+      
     </div>
   </div>
 </nav>

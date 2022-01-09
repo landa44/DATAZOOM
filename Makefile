@@ -12,3 +12,6 @@ compose-stop:
 
 compose-manage-py:
 	docker-compose run --rm $(options) website python manage.py $(cmd)
+
+compose-black:
+	docker-compose run --rm $(options) website black $(cmd)

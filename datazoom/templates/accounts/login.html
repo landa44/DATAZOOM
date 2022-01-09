@@ -1,0 +1,10 @@
+{% extends 'accounts/form.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block message %}Sign in{% endblock %}
+{% block form %}{{form.as_p}}{% endblock %}
+{% block button %}Submit{% endblock %}
+{% block link %}
+    <a href="{% url 'accounts:registration' %}">I don't have an account yet.</a>
+{% endblock %}

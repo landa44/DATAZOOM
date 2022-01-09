@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+<title >{% block title %}form{% endblock %}</title>
+
+{% block content %}
+
+    <div class="card-body p-5 container-fluid"> 
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12"></div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <h3 class="mb-5">{% block message %}{% endblock %}</h3> 
+            <div class="form-group"> 
+              <form  method="POST">
+                {% block form %}{% endblock %}
+                {% csrf_token %}
+                <div class="text-center">
+
+                  <button class="btn btn-outline-success" type="submit">{% block button %}{% endblock %}</button>
+                  <br>
+                  <br>
+                  {% block link %}{% endblock %}
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+{% endblock %}
