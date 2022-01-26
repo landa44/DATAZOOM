@@ -21,10 +21,28 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
+    class Meta:
+        ordering = ("-publish",)
 
+        def __str__(self):
+            return self.title
 
-class Meta:
-    ordering = ("-publish",)
+class Tag(models.Model):
+    objercts = models.Manager()
+    tag_name = models.CharField(max_length=60)
 
-    def __str__(self):
-        return self.title
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ("-tag_name",)
+
+        def __str__(self):
+            return self.tag_name
+
+class Interest(models.Model):
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, 
+                            related_name='interests')
+    users = models.ForeignKey(User, on_delete=models.CASCADE, 
+                            related_name='interests')
+
