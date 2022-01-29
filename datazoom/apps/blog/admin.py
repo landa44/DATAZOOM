@@ -1,6 +1,6 @@
 from re import search
 from django.contrib import admin
-from .models import Post, Tag
+from .models import Interest, Post, Tag
 
 
 @admin.register(Post)
@@ -19,3 +19,12 @@ class TagAdmin(admin.ModelAdmin):
     search_fields = ('tag_name',)
     date_hierarchy = "created"
     ordering = ('tag_name',)
+
+@admin.register(Interest)
+class InterstAdmin(admin.ModelAdmin):
+    list_display = ('tag', 'user', 'created')
+    list_filter = ('tag', 'user', 'created')
+    search_fields = ('tag', 'user')
+    raw_id_fields = ("user", 'tag')
+    date_hierarchy = "created"
+    ordering = ('user', 'tag')

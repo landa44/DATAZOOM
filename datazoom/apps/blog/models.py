@@ -43,6 +43,8 @@ class Tag(models.Model):
 class Interest(models.Model):
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, 
                             related_name='interests')
-    users = models.ForeignKey(User, on_delete=models.CASCADE, 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, 
                             related_name='interests')
 
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
