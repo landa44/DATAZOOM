@@ -7,15 +7,15 @@
 <div id='lists-posts'>
  
   {% for post in posts %}
-  <h1>
-  <a href="//127.0.0.1:8000/blog/{{ post.title}}/">
-  {{ post.title }}
-  </a>
-  </h1>
-  <p class="date">
-  Published {{ post.publish }} by {{ post.author }}
-  </p>
-  {{ post.body|truncatewords:30|linebreaks }}
+    <h1>
+    <a href="//127.0.0.1:8000/blog/{{ post.title}}/">
+    {{ post.title }}
+    </a>
+    </h1>
+    <p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+    </p>
+    {{ post.body|truncatewords:30|linebreaks }}
   {% endfor %}
 
 </div>
