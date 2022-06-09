@@ -28,7 +28,7 @@ class Post(models.Model):
             return self.title
 
 class Tag(models.Model):
-    objercts = models.Manager()
+    objects = models.Manager()
     tag_name = models.CharField(max_length=60)
 
     created = models.DateTimeField(auto_now_add=True)
