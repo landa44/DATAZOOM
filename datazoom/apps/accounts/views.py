@@ -5,31 +5,16 @@ from .forms import *
 def profile(request):
     return render(request, "accounts/profile.html")
 
-
 def registration(request):
     if request.method == "POST":
         user_form = UserRegistrationForm(request.POST)
         profile_form = UserProfileForm(request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
-            # Create a new user object but avoid saving it yet
-            new_user = user_form.save(commit=False)
-            # Set the chosen password
-            new_user.set_password(user_form.cleaned_data["password"])
-            # Save the User object
-            new_user.save()
+            profile_form.save(user_form=user_form)
+            return redirect('/accounts/login')
 
-            new_profile = profile_form.save(commit=False)
-            new_profile.user = new_user
-            new_profile.save()
-
-            return redirect("/accounts/login")
     else:
-        user_form = UserRegistrationForm()
-        profile_form = UserProfileForm()
+        return render(request, "accounts/register.html",
+            {"user_form": UserRegistrationForm(), "profile_form": UserProfileForm()})
 
-    return render(
-        request,
-        "accounts/register.html",
-        {"user_form": user_form, "profile_form": profile_form},
-    )
