@@ -23,3 +23,6 @@ class UserProfile(models.Model):
 
     # is_working = models.BooleanField(default=True)
     # work_place = models.CharField(max_length=50, blank=True, null=True)
+    
+    def create_new(owner):
+        pass

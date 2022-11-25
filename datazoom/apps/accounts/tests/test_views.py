@@ -17,7 +17,7 @@ class RegistrationViewTest(TestCase):
 
         self.assertRedirects(response, "/accounts/login")
 
-    def test_save_form_if_form_is_valid(self, mockUserProfileForm , mockUserRegistrationForm):
+    def test_save_form_if_form_is_valid(self, mockUserProfileForm, mockUserRegistrationForm):
         registration_form = mockUserRegistrationForm.return_value
         registration_form.is_valid.return_value = True
 

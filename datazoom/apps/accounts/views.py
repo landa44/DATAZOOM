@@ -13,6 +13,9 @@ def registration(request):
         if user_form.is_valid() and profile_form.is_valid():
             profile_form.save(user_form=user_form)
             return redirect('/accounts/login')
+        
+        return render(request, "accounts/register.html",
+            {"user_form": user_form, "profile_form": profile_form})
 
     else:
         return render(request, "accounts/register.html",
