@@ -17,12 +17,7 @@ class UserProfile(models.Model):
     bio = models.CharField(max_length=500, blank=True, null=True)
     website = models.URLField(max_length=200, blank=True, null=True)
 
-    # is_graduate = models.BooleanField(default =True)
-    # is_student = models.BooleanField(default =True)
-    # study_place = models.CharField(max_length=50, blank=True, null=True)
-
-    # is_working = models.BooleanField(default=True)
-    # work_place = models.CharField(max_length=50, blank=True, null=True)
+    @staticmethod
+    def create_new(bio, website, owner):
+        return UserProfile.objects.create(bio=bio, website=website, user=owner)
     
-    def create_new(owner):
-        pass
